@@ -43,8 +43,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    _setFirstValue: (event) => dispatch(setFirstValue(parseInt(event.target.value))),
-    _setSecondValue: (event) => dispatch(setSecondValue(parseInt(event.target.value)))
+    _setFirstValue: (event) => dispatch(setFirstValue(parseInt(event.target.value) || 0)),
+    _setSecondValue: (event) => dispatch(setSecondValue(parseInt(event.target.value) || 0))
 })
 
 export default connect(

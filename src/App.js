@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-
-import route from './route'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 import Counter from './Counter/Counter'
 import PassingProps from './PassingProps'
@@ -9,6 +7,7 @@ import Navigation from './Navigation/Navigation'
 import MenuItem from './Navigation/MenuItem'
 import FetchUsers from './FetchUsers/FetchUsers'
 import SyncUsers from './SyncUsers/SyncUsers'
+import Add from './Add/Add'
 
 class App extends Component {
 
@@ -20,11 +19,10 @@ class App extends Component {
 
   handleClose = () => this.setState({ isDrawerOpen: false })
 
-
   render() {
     return (
       <div>
-        <Router>
+        <BrowserRouter>
           <div>
             <Navigation
               toggleDrawer={this.toggleDrawer}
@@ -55,6 +53,11 @@ class App extends Component {
                 to="/sync-users"
                 text="Sync-users"
               />
+              <MenuItem
+                handleClose={this.handleClose}
+                to="/add"
+                text="Add"
+              />
             </Navigation>
 
             <Route path="/counter" component={() => <Counter startValue={1} />} />
@@ -62,9 +65,10 @@ class App extends Component {
             <Route path="/passing-props" exact={true} component={() => <PassingProps passingValue={5} passingFun={() => alert('bu!')} />} />
             <Route path="/fetch-users" exact={true} component={() => <FetchUsers />} />
             <Route path="/sync-users" exact={true} component={() => <SyncUsers />} />
+            <Route path="/add" exact={true} component={() => <Add />} />
 
           </div>
-        </Router>
+        </BrowserRouter>
       </div>
     )
   }

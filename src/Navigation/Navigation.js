@@ -1,7 +1,6 @@
 import React from 'react'
 
 import AppBar from './AppBar.js'
-
 import SideBar from './Sidebar.js'
 
 class Navigation extends React.Component {
